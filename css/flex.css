@@ -31,7 +31,7 @@ body{
     text-align: center;
     display:grid;
     grid-template-columns: .5fr 50% repeat(2,100px) 1fr 1fr;
-    grid-template-rows: 50% 50% 50%;
+    grid-template-rows: 50% 50%;
     height: 500px;
     width: 50vw;
     background-color: #39b7d7;
