@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="robots" content ="noarchive"> <!--para no guardar en caché-->
+    <title>Practica-HTML</title>
+    <link rel="stylesheet" href="index.css">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="j.js"></script>
+</head>
+
+
+<body>
+    <a id="openDialog" href="#">paginas asociadas</a>
+    <dialog id="myDialog"
+        <div>
+            <p>esta es la pagina principal, se encarga de mostrar todas las direcciones que tiene toda la pagina</p>
+            <form method="dialog">
+                <button id="closeDialog">x</button>
+            </form>
+            
+        </div>
+    </dialog>
+
+    <script>
+        const dialog = document.getElementById('myDialog');
+        const openDialog = document.getElementById('openDialog');
+        const closeDialog = document.getElementById('closeDialog');
+
+        openDialog.addEventListener('click', (event) => {
+            event.preventDefault();
+            dialog.showModal();
+        });
+
+        closeDialog.addEventListener('click', () => {
+            dialog.close();
+        });
+    </script>
+    <form method="dialog">
+    </form>
+    <ul>
+        <li>
+            <a href="/html/h.html">java</a>
+        </li>
+        <p>seccion de java</p>
+        <li>
+            <a href="/html/j.html">node.js</a>
+        </li>
+        <p>seccion de node</p>
+        <li>
+            <a href="/html/tt.html">tt</a>
+        </li>
+        <p>otra pagina de prueba</p>
+        <li>
+            <a href="/html/form.html">form</a><br>
+            <p>pagina de prueba para form</p>
+        </li>
+        <li>
+            <a href="/html/flex.html">flex y grid</a>
+            <p>pagina para entender flexbox y grid</p>
+        </li>
+    </ul>
+    <a href="https://www.instagram.com/_cm_emmanuel_?igsh=MWVwdTNkZDF6OGppcA%3D%3D&utm_source=qr" target="_blank">
+        <img src="./statics/Python-logo-notext.svg.png" alt="logo de javascript" width="100px" height="100px">
+    </a>
+    <form class="loco">
+        <label>nombre</label>
+        <input type="text" placeholder="nombre" name="nombre" required>
+        <input type="email" placeholder="emm@gmail.com" name="email" required>
+        <input type="password" required>
+        <input type="checkbox" required>
+        <input type="submit">
+    </form>
+    
+</body>
+</html>

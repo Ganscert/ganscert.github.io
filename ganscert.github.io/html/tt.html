@@ -1,0 +1,98 @@
+<!DOCTYPE html> <!--esto es obligatorio-->
+<html lang="es ">
+<head>
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta name="author" content="Emmanuel Cruz"> <!--esto es para saber quien hizo la pagina y el SEO sepa que si buscan tu nombre, te encunetre la pagina -->
+    <meta name="description" content="esta es una descripcion de la pagina para el SEO"><!--importante-->
+    <meta name="keywords" content="probar,python,loco"> <!--estas son palabras claves para el SEO -->
+    <meta charset="UTF-8"><!--esto para la codificacion-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--esto es para que sea adaptable a todos los dispositivos-->
+    <meta name="robots" content ="noarchive"> <!--para no guardar en caché-->
+    <link rel="stylesheet" href="/css/tt.css"><!--esto es para el CSS de la pagina-->
+    <link rel="icon" href="/statics/Python-logo-notext.svg.png" type="image/png "><!--esto es para el icono de la pagina-->
+    <title>algo avanzado</title><!--titulo de la pagina-->
+</head>
+<body>
+    <div>
+        <h2>pseudoelementos ::</h2>
+        <h3>::first-letter</h3>
+        <p>solo modifica el primer elemento o la primera letra</p>
+        <h3>::first-line</h3>
+        <p>se utiliza para modificar la primera linea del div, no importa el tamaño, la declaracion se va adaptando</p>
+        <h3>::selection</h3>
+        <p>se usa cuando se selecciona un elemento, por ejemplo, en los navegadores la letra se ponen blancas y el background azul</p>
+        <h3>::placeholder</h3>
+        <p>habla por si solo, modifica algunas cosas del placeholder</p>
+        <h3>::marker</h3>
+        <p>se utiliza para modificar los marcadores</p>
+    </div>
+    <div>
+        <h2>pseudo clases :</h2>
+        <h3 class="hover">:hover</h3>
+        <p>se utiiza cuando el puntero esta encima del elemento</p>
+        <h3 class="active">:active</h3>
+        <p>cunado damos clickk</p>
+        <h3>li:first-child</h3>
+        <p>se utiliza en una lista para selecionnar el primer elemento</p>
+        <h3>li:last-child</h3>
+        <p>se utiliza para el ulitmo</p>
+        <h3> li:nth-child(n)</h3>
+        <p>se utiliza para seleccionar algun otro elemento</p>
+        <h3>:empty</h3>
+        <p>funciona para los elementos vacios y desaparecen</p>
+        <h3>input[type="checkbox"]:checked</h3>
+        <p>podemos modificar los input para cambiarle el estilo dependiendo del contenido dentro</p>
+        <h3>:valid/invalid</h3>
+        <p>se utiliza para cuando inputs tipo mail no tiene una sintaxis valida <br><input type="mail"></p>
+        <h3>investigar para el is where y has</h3>
+    </div>
+    
+    <div>
+        <h1>meta targets</h1>
+        <h2>(no es necesario en todas las paginas, es en casos puntuales)</h2>
+        <h3>meta name="robots" content ="nosnippet"</h3>
+        <p>es para que el SEO no nos saque un fragmento de nuestra pagina (ej. google tranlator)</p>
+        <h3>meta name="robots" content ="noarchive"</h3>
+        <p>se usa para que la pagina no se guarde en caché </p>
+        <h3>averiguar mas del meta OG:</h3>
+        <p>metatag.io ayuda para organizar el OG:</p>
+    </div>
+    <div>
+        <h1>atributos de los links</h1>
+        <h3>target="_blank"</h3>
+        <p>me manda a otra pestaña</p>
+        <h3>rel="nofollow"</h3>
+        <p>hace que la pagina no se indexe a a nuestra</p>
+        <h3>rel="noreferer"</h3>
+        <p>Se utiliza para no referir de nuestra pagina a la otra en caso de que sea externa a nuestro sistena</p>
+        <h3>href="mailto:correo"</h3>
+        <h3><a href="mailto:emmanuel292929xl@gmail.com">un correo</a></h3>
+        <h3><a href="tel:+18298151117">un telefono </a></h3>
+        <h3><a href="https://wa.me/18298151117" target="_blank">un whatsapp</a></h3>
+        <p>hace que los usuarios nos manden un correo</p>
+    </div>
+
+    <table>
+        <tr>
+            <th>1</th><!--para los titulos-->
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr><!--para las filas-->
+            <td>hola</td><!--para los datos-->
+            <td>hola</td>
+            <td>hola</td>
+        </tr>
+        <tr>
+            <td>hola</td>
+            <td>hola</td>
+            <td>hola</td>
+        </tr><tr>
+            <td>hola</td>
+            <td colspan="2">hola</td>
+        </tr><tr>
+            <td colspan="3">hola</td>
+        </tr>
+    </table>
+</body>
+</html>

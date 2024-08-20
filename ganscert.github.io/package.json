@@ -1,0 +1,14 @@
+{
+  "name": "ganscert-github-io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "k.js",
+  "scripts": {
+    "start": "node k.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

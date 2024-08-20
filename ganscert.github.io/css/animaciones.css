@@ -1,0 +1,84 @@
+body{
+    background-color: rgb(55, 63, 79);
+    margin: 0;
+}
+div{
+    box-sizing: border-box;
+}
+.container{
+    margin: 10%;
+    margin-top: 100vw;
+    background-color: azure;
+    border: 3px solid black;
+    padding: 4px;
+    border-radius: 30px;
+}
+
+.barra{
+    padding: 40px;
+    background-color: aqua ;
+    border-radius: 30px;
+    width: 10%;
+    transition: width 2s linear, background-color 2s;
+}
+
+.barra:hover{
+    width: 100%;
+    background-color: #f00;
+    transition-duration: 1s;
+}
+
+
+
+.contenedor{
+    margin: 10%;
+    background-color: azure;
+    border: 3px solid black;
+    padding: 4px;
+    border-radius: 30px;
+    animation-name: girar;
+    border: 40px solid green;
+    animation-fill-mode: both;
+    animation-timeline: scroll;
+    position:sticky;
+}
+
+.animacion{
+    padding: 40px;
+    background-color: aqua ;
+    border-radius: 30px;
+    width: 10%;
+    animation-name: llenar;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+}
+
+@keyframes llenar{
+    0%{
+        width: 0%;
+        background-color: aqua;
+    }
+    50%{
+        width: 50%;
+        background-color: rgb(195, 177, 175);
+    }
+    100%{
+        width: 100%;
+        background-color: #f00;
+    }
+}
+
+
+@keyframes girar {
+    from{
+        border: 40px solid green;
+        border-top-color: #f00;
+    }
+    50%{
+        border-top-color: #f00;
+        border-right-color: #f00;
+    }
+    to{
+        border: 40px solid black;
+    }
+}
