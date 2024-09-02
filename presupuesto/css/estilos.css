@@ -1,3 +1,4 @@
+/* Estilos generales */
 * {
     margin: 0;
     padding: 0;
@@ -12,7 +13,7 @@
 
 body {
     color: #555;
-    font-family: Open Sans;
+    font-family: Open Sans, sans-serif;
     font-size: 16px;
     position: relative;
     height: 100vh;
@@ -23,6 +24,7 @@ body {
 .rojo { color: #FF5049 !important; }
 .rojofocus:focus { border: 1px solid #FF5049 !important; }
 
+/* Cabecero */
 .cabecero {
     height: 40vh;
     background-size: cover;
@@ -34,19 +36,20 @@ body {
     color: #fff;
     background: url(fondo.png), #7b4397;
     background: url(fondo.png), -webkit-gradient(linear, right top, left top, from(#7b4397), to(#dc2430));
-    background: url(fondo.png), linear-gradient(to left, #7b4397, #dc2430)
+    background: url(fondo.png), linear-gradient(to left, #7b4397, #dc2430);
 }
 
 .presupuesto {
     position: absolute;
-    width: 350px;
+    width: 90%;
+    max-width: 350px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
 }
 
-.presupuesto_titulo{
+.presupuesto_titulo {
     font-size: 20px;
     text-align: center;
     margin-bottom: 10px;
@@ -105,7 +108,7 @@ body {
     border-radius: 3px;
 }
 
-
+/* Agregar */
 .agregar {
     padding: 14px;
     border-bottom: 1px solid #e7e7e7;
@@ -142,8 +145,8 @@ body {
     transition: border 0.3s;
 }
 
-.agregar_descripcion { width: 400px;}
-.agregar_valor { width: 100px;}
+.agregar_descripcion { width: 400px; }
+.agregar_valor { width: 100px; }
 
 .agregar_btn {
     font-size: 35px;
@@ -168,21 +171,23 @@ body {
 
 .agregar_btn:focus { outline: none; }
 
+/* Contenedor */
 .contenedor {
-    width: 860px;
+    width: 90%;
+    max-width: 860px;
     margin: 60px auto;
 }
 
-.ingreso {
-    float: left;
-    width: 370px;
-    margin-right: 70px;
-}
-
+/* Ingreso y egreso */
+.ingreso,
 .egreso {
     float: left;
-    width: 370px;
+    width: 100%;
+    margin-bottom: 30px; /* Añade margen para dispositivos móviles */
 }
+
+.ingreso { margin-right: 0; }
+.egreso { margin-right: 0; }
 
 h2 {
     text-transform: uppercase;
@@ -234,7 +239,6 @@ h2 {
     color: #FF5049;
 }
 
-
 .elemento_eliminar {
     float: left;
 }
@@ -256,3 +260,70 @@ h2 {
 .elemento:hover .elemento_eliminar--btn { display: block; }
 .elemento:hover .elemento_valor { transform: translateX(-20px); }
 .elemento:hover .elemento_porcentaje { transform: translateX(-20px); }
+
+/* Media Queries para Responsividad */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .presupuesto {
+        width: 90%;
+        max-width: none;
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+
+    .agregar_descripcion,
+    .agregar_valor {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .agregar_btn {
+        font-size: 30px;
+    }
+
+    .ingreso,
+    .egreso {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* Pantallas medianas (tabletas) */
+@media (max-width: 900px) {
+    .presupuesto {
+        width: 80%;
+        max-width: none;
+    }
+
+    .agregar_descripcion {
+        width: 100%;
+    }
+
+    .agregar_valor {
+        width: 150px;
+    }
+
+    .ingreso,
+    .egreso {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* Pantallas grandes (escritorios) */
+@media (min-width: 901px) {
+    .presupuesto {
+        width: 90%;
+        max-width: 350px;
+    }
+
+    .ingreso {
+        width: calc(50% - 35px); /* Considera margen */
+        margin-right: 70px;
+    }
+
+    .egreso {
+        width: calc(50% - 35px);
+    }
+}
