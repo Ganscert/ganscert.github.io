@@ -75,7 +75,7 @@ let cargarCabecero= ()=>{
    let porcentaje= calcularEgresos()/calcularIngresos()
    document.getElementById("presupuesto").innerHTML=formatoMoneda(presupuesto)
    document.getElementById('porcentaje').innerHTML=`
-   ${isNaN(porcentaje) ? 0 : Math.round(porcentaje * 10) / 10}%
+   ${isNaN(porcentaje) ? 0 : (Math.round(porcentaje * 1000)) / 10}%
    `
    document.getElementById('ingresos').innerHTML=formatoMoneda(calcularIngresos())
    document.getElementById('egresos').innerHTML=formatoMoneda(calcularEgresos())
