@@ -54,14 +54,14 @@ let calcularIngresos=()=>{
    for(let i of ingresos){
       totalIngresos+=i.valor
    }
-   return totalIngresos
+   return parseInt(totalIngresos)
 }
 let calcularEgresos=()=>{ 
    let totalEgresos=0
    for(let i of egresos){
       totalEgresos+=i.valor
    }
-   return totalEgresos
+   return parseInt(totalEgresos)
 }
 
 const cargarApp=()=>{
@@ -75,7 +75,7 @@ let cargarCabecero= ()=>{
    let porcentaje= calcularEgresos()/calcularIngresos()
    document.getElementById("presupuesto").innerHTML=formatoMoneda(presupuesto)
    document.getElementById('porcentaje').innerHTML=`
-   ${isNaN(porcentaje) ? 0 : (Math.round(porcentaje * 1000)) / 10}%
+   ${isNaN(porcentaje)||porcentaje===Infinity ? 0 : (Math.round(porcentaje * 1000)) / 10}%
    `
    document.getElementById('ingresos').innerHTML=formatoMoneda(calcularIngresos())
    document.getElementById('egresos').innerHTML=formatoMoneda(calcularEgresos())
@@ -168,3 +168,43 @@ const agregarDato=()=>{
       }
    }
 }
+
+
+function formatNumber(value) {
+   // Añade comas como separadores de miles
+   return value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function cleanInputValue(value) {
+   // Elimina cualquier carácter que no sea un número o un punto decimal
+   return value.replace(/[^0-9.]/g, '');
+}
+
+function updateInputValue(input) {
+   const currentValue = input.value;
+   const cleanValue = cleanInputValue(currentValue);
+   
+   // Si hay más de un punto decimal, eliminar los adicionales
+   const parts = cleanValue.split('.');
+   if (parts.length > 2) {
+       cleanValue = parts[0] + '.' + parts.slice(1).join('');
+   }
+
+   if (cleanValue === '') {
+       input.value = '';
+   } else {
+       input.value = formatNumber(cleanValue);
+   }
+}
+
+document.getElementById('valor').addEventListener('input', function(e) {
+   // Guardar la posición del cursor
+   const start = e.target.selectionStart;
+   const end = e.target.selectionEnd;
+
+   // Actualizar el valor del campo de entrada
+   updateInputValue(e.target);
+
+   // Restaurar la posición del cursor
+   e.target.setSelectionRange(start, end);
+});
