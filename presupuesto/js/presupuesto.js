@@ -240,3 +240,12 @@ function cargarDatos() {
    ingresosGuardados.forEach(i => ingresos.push(new Ingreso(i._desc, i._valor)));
    egresosGuardados.forEach(e => egresos.push(new Egreso(e._desc, e._valor)));
 }
+
+document.getElementById('eliminar').addEventListener('click', () => {
+   console.log('Antes de vaciar:', ingresos, egresos);
+   ingresos.length = 0;
+   egresos.length = 0;
+   console.log('Después de vaciar:', ingresos, egresos);
+   guardarDatos()
+   cargarApp();
+});

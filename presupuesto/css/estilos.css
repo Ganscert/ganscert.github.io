@@ -137,7 +137,7 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
-};
+}
 
 .agregar_descripcion,
 .agregar_valor {
@@ -154,7 +154,9 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .agregar_descripcion { 
     width: 400px;
-    height: 44px;}
+    height: 44px;
+}
+
 .agregar_valor { 
     width: 100px;
     height: 44px;
@@ -273,6 +275,32 @@ h2 {
 .elemento:hover .elemento_valor { transform: translateX(-20px); }
 .elemento:hover .elemento_porcentaje { transform: translateX(-20px); }
 
+/* Estilo general para el botón de eliminar */
+#eliminar {
+    color: #FF5049; /* Color del texto (coincide con el color de los egresos) */
+    font-size: 16px; /* Tamaño de fuente */
+    background-color: #f7f7f7; /* Fondo claro para el botón */
+    border: 1px solid #e7e7e7; /* Borde ligero para el botón */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 12px 20px; /* Espaciado interno */
+    cursor: pointer; /* Mostrar cursor de puntero */
+    transition: background-color 0.3s, color 0.3s; /* Transiciones suaves para efectos */
+    font-family: inherit; /* Mantener la misma fuente del formulario */
+}
+
+/* Efectos al pasar el ratón sobre el botón */
+#eliminar:hover {
+    background-color: #FF5049; /* Fondo rojo al pasar el ratón */
+    color: #fff; /* Texto blanco al pasar el ratón */
+    border: 1px solid #FF5049; /* Borde rojo al pasar el ratón */
+}
+
+/* Efectos al hacer clic en el botón */
+#eliminar:active {
+    background-color: #e7e7e7; /* Fondo claro al hacer clic */
+    color: #FF5049; /* Texto rojo al hacer clic */
+}
+
 /* Media Queries para Responsividad */
 
 /* Pantallas pequeñas (móviles) */
@@ -299,6 +327,11 @@ h2 {
         width: 100%;
         margin-right: 0;
     }
+
+    #eliminar {
+        width: 100%; /* Ajustar al ancho del contenedor en móviles */
+        margin-top: 10px; /* Espacio arriba en móviles */
+    }
 }
 
 /* Pantallas medianas (tabletas) */
@@ -320,6 +353,11 @@ h2 {
     .egreso {
         width: 100%;
         margin-right: 0;
+    }
+
+    #eliminar {
+        width: auto; /* Tamaño automático en tabletas */
+        margin-top: 10px; /* Espacio arriba en tabletas */
     }
 }
 
