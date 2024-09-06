@@ -65,6 +65,7 @@ let calcularEgresos=()=>{
 }
 
 const cargarApp=()=>{
+   cargarDatos(); // Cargar datos guardados
    cargarCabecero();
    cargarIngresos();
    cargarEgresos();
@@ -140,12 +141,14 @@ const crearEgresosHTML=(egreso)=>{
 eliminarIngreso=(id)=>{
    let eliminar=ingresos.findIndex(ingreso=>ingreso.id===id)
    ingresos.splice(eliminar,1)
+   guardarDatos(); // Guardar cambios
    cargarCabecero();
    cargarIngresos();
 }
 eliminarEgreso=(id)=>{
    let eliminar=egresos.findIndex(egreso=>egreso.id===id)
    egresos.splice(eliminar,1)
+   guardarDatos(); // Guardar cambios
    cargarCabecero();
    cargarEgresos();
 }
@@ -166,6 +169,7 @@ const agregarDato=()=>{
          cargarEgresos()
          cargarCabecero()
       }
+      guardarDatos(); // Guardar cambios
    }
 }
 
@@ -187,13 +191,13 @@ function updateInputValue(input) {
    // Si hay más de un punto decimal, eliminar los adicionales
    const parts = cleanValue.split('.');
    if (parts.length > 2) {
-       cleanValue = parts[0] + '.' + parts.slice(1).join('');
+         cleanValue = parts[0] + '.' + parts.slice(1).join('');
    }
 
    if (cleanValue === '') {
-       input.value = '';
+      input.value = '';
    } else {
-       input.value = formatNumber(cleanValue);
+      input.value = formatNumber(cleanValue);
    }
 }
 
@@ -208,3 +212,23 @@ document.getElementById('valor').addEventListener('input', function(e) {
    // Restaurar la posición del cursor
    e.target.setSelectionRange(start, end);
 });
+
+function guardarDatos() {
+   localStorage.setItem('ingresos', JSON.stringify(ingresos));
+   localStorage.setItem('egresos', JSON.stringify(egresos));
+}
+
+function cargarDatos() {
+   const ingresosGuardados = JSON.parse(localStorage.getItem('ingresos')) || [];
+   const egresosGuardados = JSON.parse(localStorage.getItem('egresos')) || [];
+   
+   
+   ingresosGuardados.forEach(i => ingresos.push(new Ingreso(i._desc, i._valor)));
+   egresosGuardados.forEach(e => egresos.push(new Egreso(e._desc, e._valor)));
+}
+
+
+const eliminarDatos=()=>{
+   document.getElementById('descripcion').innerHTML=''
+   document.getElementById('valor').innerHTML=''
+}
