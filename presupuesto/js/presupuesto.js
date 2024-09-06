@@ -54,18 +54,18 @@ let calcularIngresos=()=>{
    for(let i of ingresos){
       totalIngresos+=i.valor
    }
-   return parseInt(totalIngresos)
+   return parseFloat(totalIngresos)
 }
 let calcularEgresos=()=>{ 
    let totalEgresos=0
    for(let i of egresos){
       totalEgresos+=i.valor
    }
-   return parseInt(totalEgresos)
+   return parseFloat(totalEgresos)
 }
 
 const cargarApp=()=>{
-   cargarDatos(); // Cargar datos guardados
+   cargarDatos()
    cargarCabecero();
    cargarIngresos();
    cargarEgresos();
@@ -141,65 +141,50 @@ const crearEgresosHTML=(egreso)=>{
 eliminarIngreso=(id)=>{
    let eliminar=ingresos.findIndex(ingreso=>ingreso.id===id)
    ingresos.splice(eliminar,1)
-   guardarDatos(); // Guardar cambios
+   guardarDatos()
    cargarCabecero();
    cargarIngresos();
 }
 eliminarEgreso=(id)=>{
    let eliminar=egresos.findIndex(egreso=>egreso.id===id)
    egresos.splice(eliminar,1)
-   guardarDatos(); // Guardar cambios
+   guardarDatos()
    cargarCabecero();
    cargarEgresos();
 }
 
-const agregarDato=()=>{
-   let forma=document.forms['forma']
-   let tipo=forma['tipo']
-   let descripcion=forma['descripcion']
-   let valor=forma['valor']
-   if(descripcion.value!==""&&valor.value!==''){
-      if(tipo.value==='ingreso'){
-         ingresos.push(new Ingreso(descripcion.value,+valor.value))
-         cargarIngresos()
-         cargarCabecero()
+const agregarDato = () => {
+   let forma = document.forms['forma'];
+   let tipo = forma['tipo'];
+   let descripcion = forma['descripcion'];
+   let valor = forma['valor'];
+
+   // Elimina las comas del valor antes de convertirlo a número
+   let valorSinComas = valor.value.replace(/,/g, '');
+
+   // Convierte el valor a número decimal después de eliminar las comas
+   let valorNumerico = parseFloat(valorSinComas);
+
+   // Verifica si el valor es un número válido
+   if (descripcion.value !== "" && !isNaN(valorNumerico)) {
+      if (tipo.value === 'ingreso') {
+         ingresos.push(new Ingreso(descripcion.value, valorNumerico));
+         cargarIngresos();
+         cargarCabecero();
+      } else if (tipo.value === 'egreso') {
+         egresos.push(new Egreso(descripcion.value, valorNumerico));
+         cargarEgresos();
+         cargarCabecero();
       }
-      else if(tipo.value==='egreso'){
-         egresos.push(new Egreso(descripcion.value,parseInt(valor.value)))
-         cargarEgresos()
-         cargarCabecero()
-      }
-      guardarDatos(); // Guardar cambios
+   guardarDatos()
    }
-}
+};
 
 
-function formatNumber(value) {
-   // Añade comas como separadores de miles
-   return value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
 
-function cleanInputValue(value) {
-   // Elimina cualquier carácter que no sea un número o un punto decimal
-   return value.replace(/[^0-9.]/g, '');
-}
 
-function updateInputValue(input) {
-   const currentValue = input.value;
-   const cleanValue = cleanInputValue(currentValue);
-   
-   // Si hay más de un punto decimal, eliminar los adicionales
-   const parts = cleanValue.split('.');
-   if (parts.length > 2) {
-         cleanValue = parts[0] + '.' + parts.slice(1).join('');
-   }
 
-   if (cleanValue === '') {
-      input.value = '';
-   } else {
-      input.value = formatNumber(cleanValue);
-   }
-}
+
 
 document.getElementById('valor').addEventListener('input', function(e) {
    // Guardar la posición del cursor
@@ -211,6 +196,35 @@ document.getElementById('valor').addEventListener('input', function(e) {
 
    // Restaurar la posición del cursor
    e.target.setSelectionRange(start, end);
+});
+
+const eliminarDatos=()=>{
+   document.getElementById('valor').value=''
+   document.getElementById('descripcion').value=''
+}
+
+
+
+const formatearValor = (event) => {
+   const input = event.target;
+   let valor = input.value;
+
+   // Eliminar caracteres no numéricos y formatear el número
+   valor = valor.replace(/,/g, ''); // Eliminar comas existentes
+   const partes = valor.split('.'); // Dividir en parte entera y decimal
+
+   // Formatear la parte entera con comas
+   partes[0] = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+   // Unir partes con el punto decimal si existe
+   input.value = partes.join('.');
+};
+
+// Configurar el evento 'input' para formatear el valor del input
+document.addEventListener('DOMContentLoaded', () => {
+   const inputValor = document.getElementById('valor');
+   inputValor.addEventListener('input', formatearValor); // Formatear al escribir
+   inputValor.addEventListener('blur', formatearValor);  // Formatear al salir del campo
 });
 
 function guardarDatos() {
@@ -225,10 +239,4 @@ function cargarDatos() {
    
    ingresosGuardados.forEach(i => ingresos.push(new Ingreso(i._desc, i._valor)));
    egresosGuardados.forEach(e => egresos.push(new Egreso(e._desc, e._valor)));
-}
-
-
-const eliminarDatos=()=>{
-   document.getElementById('descripcion').innerHTML=''
-   document.getElementById('valor').innerHTML=''
 }
