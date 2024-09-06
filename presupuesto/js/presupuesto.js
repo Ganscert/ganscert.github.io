@@ -177,13 +177,9 @@ const agregarDato = () => {
          cargarCabecero();
       }
    guardarDatos()
+   eliminarDatos()
    }
 };
-
-
-
-
-
 
 
 document.getElementById('valor').addEventListener('input', function(e) {
@@ -199,7 +195,7 @@ document.getElementById('valor').addEventListener('input', function(e) {
 });
 
 const eliminarDatos=()=>{
-   document.getElementById('valor').value=''
+   document.getElementById('valor').value=' '
    document.getElementById('descripcion').value=''
 }
 
@@ -249,3 +245,5 @@ document.getElementById('eliminar').addEventListener('click', () => {
    guardarDatos()
    cargarApp();
 });
+
+
