@@ -14,7 +14,6 @@ body {
 	width: 90%;
 	max-width: 1000px;
 	margin: 40px auto 100px auto;
-
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 40px;
@@ -33,6 +32,25 @@ body {
 	width: 100%;
 	margin-bottom: 10px;
 	border-radius: 15px;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 1200px) {
+	.contenedor {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 900px) {
+	.contenedor {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 600px) {
+	.contenedor {
+		grid-template-columns: 1fr;
+	}
 }
 
 .paginacion {
