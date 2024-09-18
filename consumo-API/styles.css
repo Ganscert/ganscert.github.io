@@ -49,7 +49,7 @@ body {
 
 @media (max-width: 600px) {
 	.contenedor {
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 	}
 }
 
