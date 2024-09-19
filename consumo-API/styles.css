@@ -1,0 +1,109 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	background: #e0e0e0;
+	color: #1d1d1d;
+}
+
+.contenedor {
+	width: 95%;
+	max-width: 1200px;
+	margin: 40px auto 100px auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 20px;
+}
+
+.contenedor .pelicula {
+	text-align: center;
+}
+
+.contenedor .pelicula .titulo {
+	font-size: 14px;
+	font-weight: 600;
+	margin-top: 10px;
+}
+
+.contenedor .pelicula .poster {
+	width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+	border-radius: 15px;
+	object-fit: cover;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+	.contenedor {
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: 15px;
+	}
+	
+	.contenedor .pelicula .titulo {
+		font-size: 12px;
+	}
+	
+	.paginacion button {
+		height: 35px;
+		min-width: 100px;
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 480px) {
+	.contenedor {
+		grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+		gap: 10px;
+	}
+	
+	.contenedor .pelicula .titulo {
+		font-size: 11px;
+	}
+	
+	.paginacion button {
+		height: 30px;
+		min-width: 80px;
+		font-size: 11px;
+	}
+}
+
+.paginacion {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #100a1f;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	padding: 10px;
+	flex-wrap: wrap;
+}
+
+.paginacion button {
+	cursor: pointer;
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: 40px;
+	min-width: 120px;
+	padding: 0 15px;
+	background: #241744;
+	color: #fff;
+	border-radius: 20px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	font-size: 14px;
+	transition: .3s ease all;
+}
+
+.paginacion button:hover {
+	background: #137c32;
+}
