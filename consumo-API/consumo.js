@@ -16,7 +16,7 @@ btnAnterior.addEventListener('click',()=>{
 
 const peticionApi=async()=>{
    try{
-      const respuesta= await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&languaje=es-MX&page=${pagina}`)
+      const respuesta= await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&languaje=es-MX&page=${pagina}`)
       console.log(respuesta)
       //si la respuesta es exitosa
       if(respuesta.status===200){
@@ -52,5 +52,3 @@ catch(error){
 }
 
 peticionApi()
-
-
