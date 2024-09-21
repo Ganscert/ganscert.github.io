@@ -1,7 +1,4 @@
-require('dotenv').config();
-
-const API_KEY = process.env.API_KEY;
-
+let API_KEY="056f371d92750e3e17d3075f832d4021"
 let pagina=1
 
 const btnSiguiente=document.getElementById('btnSiguiente')
