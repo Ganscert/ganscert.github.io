@@ -1,0 +1,64 @@
+body{
+    margin: 0;
+    background-color: #bcb;
+}
+.flexitem{
+    background-color: red;
+    color: aliceblue;
+    width: 200px;
+    margin: 0;
+    text-align: center;
+    font-size: 400%;
+    margin: 10px;
+    border: 3px solid #000;
+    top: auto;
+}
+.felxbox{
+    display: flex;
+    border: 1px solid #000;
+    justify-content: space-evenly;
+    margin-top: 200vh;
+    flex-wrap: wrap;    
+    
+}
+.flexitem:nth-child(2n):hover{
+    background: #000;
+    border: 3px #fff solid;
+    transition-duration: 0.5s;
+}
+
+.grid{
+    text-align: center;
+    display:grid;
+    grid-template-columns: .5fr 50% repeat(2,100px) 1fr 1fr;
+    grid-template-rows: 50% 50%;
+    height: 500px;
+    width: 50vw;
+    background-color: #39b7d7;
+    grid-auto-rows: 200px;
+    margin:auto;
+    gap: 0px;
+}
+
+div>div{
+    color: #bcb;
+    background-color: #03f;
+    font-size: 3em;
+    margin: 10px;
+}
+
+.grid-item{
+    color: #bcb;
+    background-color: #135;
+    font-size: 3em;
+    margin: 10px;
+    border: solid #fff ;
+    justify-content: center;
+}
+
+
+
+a{
+    cursor:progress
+}
+
